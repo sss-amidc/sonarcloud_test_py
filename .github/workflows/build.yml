@@ -22,3 +22,4 @@ jobs:
           args: >
             -Dsonar.organization=sss-amidc
             -Dsonar.projectKey=sonarcloud_test_py
+            -Dsonar.python.coverage.reportPaths=coverage.xml
