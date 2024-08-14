@@ -19,12 +19,11 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
-            -Dsonar.pullrequest.provider=GitHub
-            -Dsonar.pullrequest.github.repository=sonarcloud_test_py
+            -Dsonar.pullrequest.provider=gitHub
             -Dsonar.organization=sssamidc
+            -Dsonar.pullrequest.github.repository=sonarcloud_test_py
             -Dsonar.projectKey=sssamidc_sonarcloud_test_py
-            -Dsonar.pullrequest.base=main
             -Dsonar.pullrequest.key=${{ github.pull_request.number }}
-            -Dsonar.pullrequest.branch=${{github.head_ref}}
-            -Dsonar.python.coverage.reportPaths=coverage.xml
+            -Dsonar.pullrequest.base=${{ github.base_ref }}
+            -Dsonar.pullrequest.branch=${{ github.head_ref }}
             -X
