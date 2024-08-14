@@ -27,3 +27,4 @@ jobs:
             -Dsonar.pullrequest.key=${{ github.pull_request.number }}
             -Dsonar.pullrequest.branch=${{github.head_ref}}
             -Dsonar.python.coverage.reportPaths=coverage.xml
+            -X
