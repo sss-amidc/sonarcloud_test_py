@@ -1,4 +1,4 @@
-name: Test SonarCloud Python
+name: Python - SonarCloud Demo
 on:
   push:
     branches:
