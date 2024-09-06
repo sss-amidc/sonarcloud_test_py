@@ -22,7 +22,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest coverage bandit
       - name: Run Bandit SAST
-        run: bandit -r .
+        run: bandit -r ./src/
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env: 
