@@ -20,4 +20,4 @@ sol1 = (-b - cmath.sqrt(d) / (2 * a)
 sol2 = (-b + cmath.sqrt(d)) / (2 * a)
 
 # Finally, print the result
-print(f"sol1: {sol1}, sol2: {sol2}")
+print(f"sol1: {sol1}, sol2: {sol2"
