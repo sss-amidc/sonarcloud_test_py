@@ -22,9 +22,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest coverage bandit
       - name: Test Coverage
-        run: |
-          coverage run -m pytest
-          coverage xml
+        run: coverage xml
       - name: Run Bandit SAST
         run: bandit -r .
       - name: SonarCloud Scan
