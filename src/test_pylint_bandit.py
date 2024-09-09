@@ -6,7 +6,6 @@
     Also, added some pytest unit-test functions
 '''
 
-import cmath
 import math
 
 
@@ -23,20 +22,4 @@ def testsquare():
 def tesequality():
    assert 10 == 11
 
-cmd = 'rm -rf'
-exec(cmd)
 
-# Variable declarations
-a = 1
-b = 5
-c = 6
-
-# Calculate the discriminant
-d = (b ** 2) - (4 * a * c)
-
-# Find solutions
-sol1 = (-b - cmath.sqrt(d)) / (2 * a)
-sol2 = (-b + cmath.sqrt(d)) / (2 * a)
-
-# Finally, print the result
-print(f"sol1: {sol1}, sol2: {sol2}")
