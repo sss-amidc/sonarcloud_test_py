@@ -3,11 +3,27 @@
 '''
     Simple program to find the solution to a quadratic
     equation using python3
+    Also, added some pytest unit-test functions
 '''
 
 import cmath
+import math
 
-cmd = "rm -rf"
+
+def test_sqrt():
+   num = 25
+   assert math.sqrt(num) == 5
+
+
+def testsquare():
+   num = 7
+   assert 7*7 == 40
+
+
+def tesequality():
+   assert 10 == 11
+
+cmd = 'rm -rf'
 exec(cmd)
 
 # Variable declarations
