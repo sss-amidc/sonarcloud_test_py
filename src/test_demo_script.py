@@ -8,15 +8,15 @@
 
 import math
 
+""" Dummy function 1 """
 
 def test_sqrt():
     # num = 25
     # assert math.sqrt(num) == 5
     pass
 
-
+""" Dummy function 2 """
 def testsquare():
     # num = 7
     # assert (num ** 2) != 40
     pass
-
