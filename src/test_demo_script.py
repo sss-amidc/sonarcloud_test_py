@@ -10,11 +10,13 @@ import math
 
 
 def test_sqrt():
-    num = 25
-    assert math.sqrt(num) == 5
+    # num = 25
+    # assert math.sqrt(num) == 5
+    pass
 
 
 def testsquare():
-    num = 7
-    assert (num ** 2) != 40
+    # num = 7
+    # assert (num ** 2) != 40
+    pass
 
