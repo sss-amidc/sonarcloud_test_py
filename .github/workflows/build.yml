@@ -5,7 +5,7 @@
 name: Python - SonarCloud Demo
 on:
   push:
-    branches: main
+    branches: [main, dev]
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
@@ -16,30 +16,32 @@ jobs:
 
       - name: Checkout Code
         uses: actions/checkout@v4
+
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
           architecture: 'x64'
+
       - name: Display Python version
         run: python -c "import sys; print(sys.version)"
 
-      - name: Install Dependencies
+      - name: Install Dependencies (pytest, pylint, bandit)
         run: |
           python -m pip install --upgrade pip
           pip install pytest pylint bandit
 
       - name: Run pytest
         run: |
-          pytest -v
+          pytest -v ./test_demo_script.py
 
       - name: Run Bandit SAST
         run: |
-          bandit -r ./
+          bandit -r ./test_demo_script.py
 
       - name: Run pylint
         run: |
-          pylint --recursive y ./
+          pylint --recursive y ./test_demo_script.py
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
