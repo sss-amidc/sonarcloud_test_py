@@ -12,6 +12,7 @@
 # Dummy function 1
 # '''
 def test_sqrt():
+    """ Dummy function 1 """
     # num = 25
     # assert math.sqrt(num) == 5
     pass
@@ -20,6 +21,7 @@ def test_sqrt():
 # Dummy function 2
 #'''
 def testsquare():
+    """ Dummy function 2 """
     # num = 7
     # assert (num ** 2) != 40
     pass
