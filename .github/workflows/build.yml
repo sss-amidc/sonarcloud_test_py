@@ -58,3 +58,21 @@ jobs:
 #            -Dsonar.pullrequest.base=${{ github.base_ref }}
 #            -Dsonar.pullrequest.branch=${{ github.head_ref }}
 #            -X
+
+#  code_review_check:
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      - name: Check Code Review Status
+#        run: |
+#          # Check if the label "code-review-approved" exists
+#          if [[ $(curl -s -H "Authorization: token $GITHUB_TOKEN" https://api.github.com/repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER | jq '.labels[].name' | grep -c 'code-review-approved') -gt 0 ]]; then
+#            echo "Code review approved. Ready to merge."
+#          else
+#            echo "Code review pending. Cannot merge yet."
+#            exit 1
+#          fi
+#
+#      env:
+#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        PR_NUMBER: ${{ github.event.number }}
