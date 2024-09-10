@@ -1,3 +1,7 @@
+## Modifying to run only for test_demo_script.py
+## For demonstration purposes. Base commands to remain the same
+## TODO: Remove the filename for running a more comprehensive scan
+
 name: Python - SonarCloud Demo
 on:
   push:
