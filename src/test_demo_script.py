@@ -12,9 +12,9 @@ import math
 def test_sqrt():
     # num = 25
     # assert math.sqrt(num) == 5
-
+    pass
 
 def testsquare():
     #num = 7
     # assert (7*7) != 40
-
+    pass
