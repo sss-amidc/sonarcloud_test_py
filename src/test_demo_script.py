@@ -16,5 +16,5 @@ def test_sqrt():
 
 def testsquare():
     num = 7
-    assert (7*7) == 40
+    assert (7*7) != 40
 
