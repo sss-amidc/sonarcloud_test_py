@@ -13,11 +13,11 @@ def test_sqrt():
     """ Dummy 1 """
     # num = 25
     # assert math.sqrt(num) == 5
-    pass
+    # pass
 
 
 def testsquare():
     """ Dummy 2 """
     # num = 7
     # assert (7*7) != 40
-    pass
+    # pass
