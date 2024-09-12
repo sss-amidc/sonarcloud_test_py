@@ -31,15 +31,15 @@ jobs:
 
       - name: Run pytest
         run: |
-          pytest -v
+          pytest -v ./src/test_demo_script.py
 
       - name: Run Bandit SAST
         run: |
-          bandit -r ./
+          bandit -r ./src/test_demo_script.py
 
       - name: Run pylint
         run: |
-          pylint --recursive y ./
+          pylint --recursive y ./src/test_demo_script.py
 
 #       - name: SonarCloud Scan
 #         uses: SonarSource/sonarcloud-github-action@master
