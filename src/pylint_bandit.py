@@ -9,17 +9,17 @@
 import math
 
 
-def test_sqrt():
+def sqrt():
    num = 25
    assert math.sqrt(num) == 5
 
 
-def testsquare():
+def square():
    num = 7
    assert 7*7 == 40
 
 
-def tesequality():
+def quality():
    assert 10 == 11
 
 
