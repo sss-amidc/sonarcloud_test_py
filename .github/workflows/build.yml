@@ -1,11 +1,14 @@
-## Modifying to run only for test_demo_script.py
+## Modifying to run only for $(ROOT)/test/test_demo_script.py
 ## For demonstration purposes. Base commands to remain the same
 ## TODO: Remove the filename for running a more comprehensive scan
 
 name: Python - SonarCloud Demo
 on:
   push:
-    branches: [main, dev]
+    branches:
+      - main
+      - dev
+      - covbase
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
@@ -26,10 +29,10 @@ jobs:
       - name: Display Python version
         run: python -c "import sys; print(sys.version)"
 
-      - name: Install Dependencies (pytest, pylint, bandit)
+      - name: Install Dependencies (pytest, pylint, bandit, coverage, pytest-cov)
         run: |
           python -m pip install --upgrade pip
-          pip install pytest pylint bandit
+          pip install pytest pylint bandit coverage pytest-cov
 
       - name: Run pytest
         run: |
@@ -43,18 +46,18 @@ jobs:
         run: |
           pylint --recursive y ./test_demo_script.py
 
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
-        env: 
-          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        with:
-          args: >
-            -Dsonar.pullrequest.provider=gitHub
-            -Dsonar.organization=sssamidc
-            -Dsonar.pullrequest.github.repository=sonarcloud_test_py
-            -Dsonar.projectKey=sssamidc_sonarcloud_test_py
-            -Dsonar.pullrequest.key=${{ github.pull_request.number }}
-            -Dsonar.pullrequest.base=${{ github.base_ref }}
-            -Dsonar.pullrequest.branch=${{ github.head_ref }}
-            -X
+#       - name: SonarCloud Scan
+#         uses: SonarSource/sonarcloud-github-action@master
+#         env: 
+#           GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+#           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+#         with:
+#           args: >
+#             -Dsonar.pullrequest.provider=gitHub
+#             -Dsonar.organization=sssamidc
+#             -Dsonar.pullrequest.github.repository=sonarcloud_test_py
+#             -Dsonar.projectKey=sssamidc_sonarcloud_test_py
+#             -Dsonar.pullrequest.key=${{ github.pull_request.number }}
+#             -Dsonar.pullrequest.base=${{ github.base_ref }}
+#             -Dsonar.pullrequest.branch=${{ github.head_ref }}
+#             -X
