@@ -36,16 +36,16 @@ jobs:
 
       - name: Run pytest
         run: |
-          pytest -v ./test_demo_script.py || true
+          pytest -v ../test || true
 
       - name: Run Bandit SAST
         run: |
-          bandit -r ./test_demo_script.py
+          bandit -r ../test || true
 #           continue-on-error: true
 
       - name: Run pylint
         run: |
-          pylint --recursive y ./test_demo_script.py
+          pylint --recursive y ../test
 #           continue-on-error: true
 
 #       - name: SonarCloud Scan
