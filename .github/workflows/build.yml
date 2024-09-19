@@ -36,18 +36,17 @@ jobs:
 
       - name: Run pytest
         run: |
-          pytest -v ./test_demo_script.py
-          continue-on-error: true
+          pytest -v ./test_demo_script.py || true
 
       - name: Run Bandit SAST
         run: |
           bandit -r ./test_demo_script.py
-          continue-on-error: true
+#           continue-on-error: true
 
       - name: Run pylint
         run: |
           pylint --recursive y ./test_demo_script.py
-          continue-on-error: true
+#           continue-on-error: true
 
 #       - name: SonarCloud Scan
 #         uses: SonarSource/sonarcloud-github-action@master
