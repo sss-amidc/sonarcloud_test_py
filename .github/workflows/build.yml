@@ -37,17 +37,14 @@ jobs:
       - name: Run pytest
         run: |
           pytest -v ../test
-          echo "::set-output name=pytest-exit-code:: $?"
 
       - name: Run Bandit SAST
         run: |
           bandit -r ../test
-          echo "::set-output name=bandit-exit-code:: $?"
 
       - name: Run pylint
         run: |
           pylint --recursive y ../test
-          echo "::set-output name=pylint-exit-code:: $?"
 
 #       - name: SonarCloud Scan
 #         uses: SonarSource/sonarcloud-github-action@master
