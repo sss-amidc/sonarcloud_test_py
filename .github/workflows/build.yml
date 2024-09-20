@@ -67,7 +67,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: code-reports
-            path: pytest_report.xml, bandit_report.json, pylint_report.json
+          path: pytest_report.xml, bandit_report.json, pylint_report.json
 
 #       - name: SonarCloud Scan
 #         uses: SonarSource/sonarcloud-github-action@master
