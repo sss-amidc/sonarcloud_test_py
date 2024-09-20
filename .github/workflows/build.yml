@@ -64,7 +64,7 @@ jobs:
 #           echo "-------------- END: pylint Test Results ------------------"
 
       - name: Show Report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: code-reports
           path: pytest_report.xml, bandit_report.json, pylint_report.json
