@@ -55,18 +55,18 @@ jobs:
           echo "-------------- BEGIN: pytest Test Results ------------------"
           cat pytest_output.txt
           echo "-------------- END: pytest Test Results ------------------"
-          echo ""
-          echo ""
+          echo "\n"
+          echo "\n"
           echo "-------------- BEGIN: bandit Test Results ------------------"
           cat bandit_output.txt
           echo "-------------- END: bandit Test Results ------------------"
-          echo ""
-          echo ""
+          echo "\n"
+          echo "\n"
           echo "-------------- BEGIN: pylint Test Results ------------------"
           cat pylint_ouput.txt
           echo "-------------- END: pylint Test Results ------------------"
-          echo ""
-          echo ""
+          echo "\n"
+          echo "\n"
 
 #       - name: SonarCloud Scan
 #         uses: SonarSource/sonarcloud-github-action@master
