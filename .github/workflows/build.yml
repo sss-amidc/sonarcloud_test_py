@@ -51,9 +51,22 @@ jobs:
 
       - name: Display Results
         run: |
+          ## Line separator for pytest results
+          echo "-------------- BEGIN: pytest Test Results ------------------"
           cat pytest_output.txt
+          echo "-------------- END: pytest Test Results ------------------"
+          echo ""
+          echo ""
+          echo "-------------- BEGIN: bandit Test Results ------------------"
           cat bandit_output.txt
+          echo "-------------- END: bandit Test Results ------------------"
+          echo ""
+          echo ""
+          echo "-------------- BEGIN: pylint Test Results ------------------"
           cat pylint_ouput.txt
+          echo "-------------- END: pylint Test Results ------------------"
+          echo ""
+          echo ""
 
 #       - name: SonarCloud Scan
 #         uses: SonarSource/sonarcloud-github-action@master
