@@ -15,7 +15,6 @@ jobs:
 
   build:
 
-    name: SonarCloud
     runs-on: ubuntu-latest
     
     steps:
@@ -50,8 +49,8 @@ jobs:
         run: |
           pylint --recursive y --output-format=json ./test > pylint_report.json || true
 
-       - name: Display Results
-         run: |
+      - name: Display Results
+        run: |
            ## Line separator for pytest results
            echo "-------------- BEGIN: pytest Test Results ------------------"
            cat pytest_report.xml
