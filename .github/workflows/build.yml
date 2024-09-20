@@ -35,31 +35,32 @@ jobs:
       - name: Install Dependencies (pytest, pylint, bandit, coverage, pytest-cov)
         run: |
           python -m pip install --upgrade pip
-          pip install pytest pylint bandit coverage pytest-cov
+          pip install pytest pylint bandit
 
       - name: Run pytest
         run: |
-          pytest -v ./test/ > pytest_output.txt || true
+          pytest -v --junit-xml=pytest_report.xml
+          echo "--- pytest test cases finished ----"
 
       - name: Run Bandit SAST
         run: |
-          bandit -r ./test/ > bandit_output.txt || true
+          bandit -r test/ -f json -o bandit_report.json
 
       - name: Run pylint
         run: |
-          pylint --recursive y ./test > pylint_ouput.txt || true
+          pylint --recursive y --output-format=json ./test > pylint_report.json || true
 
       - name: Display Results
         run: |
           ## Line separator for pytest results
           echo "-------------- BEGIN: pytest Test Results ------------------"
-          cat pytest_output.txt
+          cat pytest_report.xml
           echo "-------------- END: pytest Test Results ------------------"
           echo "-------------- BEGIN: bandit Test Results ------------------"
-          cat bandit_output.txt
+          cat bandit_report.json
           echo "-------------- END: bandit Test Results ------------------"
           echo "-------------- BEGIN: pylint Test Results ------------------"
-          cat pylint_ouput.txt
+          cat pylint_report.json
           echo "-------------- END: pylint Test Results ------------------"
 
 #       - name: SonarCloud Scan
