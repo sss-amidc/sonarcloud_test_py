@@ -50,18 +50,27 @@ jobs:
         run: |
           pylint --recursive y --output-format=json ./test > pylint_report.json || true
 
-      - name: Display Results
-        run: |
-          ## Line separator for pytest results
-          echo "-------------- BEGIN: pytest Test Results ------------------"
-          cat pytest_report.xml
-          echo "-------------- END: pytest Test Results ------------------"
-          echo "-------------- BEGIN: bandit Test Results ------------------"
-          cat bandit_report.json
-          echo "-------------- END: bandit Test Results ------------------"
-          echo "-------------- BEGIN: pylint Test Results ------------------"
-          cat pylint_report.json
-          echo "-------------- END: pylint Test Results ------------------"
+#       - name: Display Results
+#         run: |
+#           ## Line separator for pytest results
+#           echo "-------------- BEGIN: pytest Test Results ------------------"
+#           cat pytest_report.xml
+#           echo "-------------- END: pytest Test Results ------------------"
+#           echo "-------------- BEGIN: bandit Test Results ------------------"
+#           cat bandit_report.json
+#           echo "-------------- END: bandit Test Results ------------------"
+#           echo "-------------- BEGIN: pylint Test Results ------------------"
+#           cat pylint_report.json
+#           echo "-------------- END: pylint Test Results ------------------"
+
+      - name: Show Report
+        uses: actions/upload-artifact@v2
+        with:
+          name: code-reports
+            path: |
+              pytest_report.xml
+              bandit_report.json
+              pylint_report.json
 
 #       - name: SonarCloud Scan
 #         uses: SonarSource/sonarcloud-github-action@master
