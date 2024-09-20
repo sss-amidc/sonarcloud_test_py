@@ -39,15 +39,21 @@ jobs:
 
       - name: Run pytest
         run: |
-          pytest -v ./test/ || true
+          pytest -v ./test/ > pytest_output.txt || true
 
       - name: Run Bandit SAST
         run: |
-          bandit -r ./test/ || true
+          bandit -r ./test/ > bandit_output.txt || true
 
       - name: Run pylint
         run: |
-          pylint --recursive y ./test || true
+          pylint --recursive y ./test > pylint_ouput.txt || true
+
+      - name: Display Results
+        run: |
+          cat pytest_output.txt
+          cat bandit_output.txt
+          cat pylint_ouput.txt
 
 #       - name: SonarCloud Scan
 #         uses: SonarSource/sonarcloud-github-action@master
