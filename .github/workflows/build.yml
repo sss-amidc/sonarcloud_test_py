@@ -12,9 +12,12 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
-  SonarCloudPython:
+
+  build:
+
     name: SonarCloud
     runs-on: ubuntu-latest
+    
     steps:
 
       - name: Checkout Code
@@ -36,15 +39,15 @@ jobs:
 
       - name: Run pytest
         run: |
-          pytest -v ../test
+          pytest -v ./test/
 
       - name: Run Bandit SAST
         run: |
-          bandit -r ../test
+          bandit -r ./test/
 
       - name: Run pylint
         run: |
-          pylint --recursive y ../test
+          pylint --recursive y ./test
 
 #       - name: SonarCloud Scan
 #         uses: SonarSource/sonarcloud-github-action@master
