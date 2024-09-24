@@ -52,15 +52,15 @@ jobs:
       - name: Display Results
         run: |
            ## Line separator for pytest results
-           echo -e "-------------- BEGIN: pytest Test Results ------------------"
+           printf "\n-------------- BEGIN: pytest Test Results ------------------\n"
            cat pytest_report.xml
-           echo -e "-------------- END: pytest Test Results ------------------"
-           echo -e "-------------- BEGIN: bandit Test Results ------------------"
+           printf "\n-------------- END: pytest Test Results ------------------\n"
+           printf "\n-------------- BEGIN: bandit Test Results ------------------\n"
            cat bandit_report.json
-           echo -e "-------------- END: bandit Test Results ------------------"
-           echo -e "-------------- BEGIN: pylint Test Results ------------------"
+           printf "\n-------------- END: bandit Test Results ------------------\n"
+           printf "\n-------------- BEGIN: pylint Test Results ------------------\n"
            cat pylint_report.json
-           echo -e "-------------- END: pylint Test Results ------------------"
+           printf "\n-------------- END: pylint Test Results ------------------\n"
 
 #       - name: Show Report
 #         uses: actions/upload-artifact@v3
