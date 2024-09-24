@@ -62,6 +62,24 @@ jobs:
            cat pylint_report.json
            printf "\n-------------- END: pylint Test Results ------------------\n"
 
+
+#### Adding logic for selectively running tools on the changed files only
+#    - name: Get changed Python files
+#      id: get_changed_files
+#      run: echo ::set-output name=changed_files::$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep '\.py$' || true)
+#
+#    - name: Run pytest, bandit, pylint on changed files
+#      run: |
+#        for file in ${{ steps.get_changed_files.outputs.changed_files }}; do
+#          if [ -f $file ]; then
+#            echo "Running tests on $file"
+#            pytest $file
+#            bandit -r $file
+#            pylint $file
+#          fi
+#        done
+
+
 #       - name: Show Report
 #         uses: actions/upload-artifact@v3
 #         with:
